@@ -386,3 +386,21 @@ $fade-out-distance: 15px;
     /* if the user-specified background color can't be understood by the browser, default to white */
     background-color: white;
 }
+
+body[theme="light"] .blocklyScrollbarVertical g rect,
+body[theme="light"] .blocklyScrollbarHorizontal g rect {
+    fill: #cecdce;
+}
+body[theme="light"] .blocklyScrollbarVertical:hover g rect,
+body[theme="light"] .blocklyScrollbarHorizontal:hover g rect {
+    fill: #edebed;
+}
+
+body[theme="dark"] .blocklyScrollbarVertical g rect,
+body[theme="dark"] .blocklyScrollbarHorizontal g rect {
+    fill: #666;
+}
+body[theme="dark"] .blocklyScrollbarVertical:hover g rect,
+body[theme="dark"] .blocklyScrollbarHorizontal:hover g rect {
+    fill: #888;
+}

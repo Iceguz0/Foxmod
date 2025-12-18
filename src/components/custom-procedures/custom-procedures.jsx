@@ -12,6 +12,7 @@ import textInputIcon from './icon--text-input.svg';
 import newTextInputIcon from './icon--new-text-input.svg';
 import numberInputIcon from './icon--number-input.svg';
 import colorInputIcon from './icon--color-input.svg';
+import branchInputIcon from './icon--branch-input.svg';
 import labelIcon from './icon--label.svg';
 
 import stackBlockIcon from './icon--stack-block.svg';
@@ -212,11 +213,12 @@ const CustomProcedures = props => (
                                 />
                             </div>
                         </div>
-                        {/*<div
+                        <div
                             className={styles.optionCard}
                             role="button"
                             tabIndex="0"
                             onClick={props.onAddNumber}
+                            style={{display: "none"}}
                         >
                             <img
                                 className={styles.optionIcon}
@@ -237,7 +239,7 @@ const CustomProcedures = props => (
                                 />
                             </div>
                         </div>
-                        <div
+                        {/*<div
                             className={styles.optionCard}
                             role="button"
                             tabIndex="0"
@@ -284,6 +286,32 @@ const CustomProcedures = props => (
                                     defaultMessage="boolean"
                                     description="Description of the boolean input type"
                                     id="gui.customProcedures.booleanType"
+                                />
+                            </div>
+                        </div>
+                        <div
+                            className={styles.optionCard}
+                            role="button"
+                            tabIndex="0"
+                            onClick={props.onAddCommand}
+                        >
+                            <img
+                                className={styles.optionIcon}
+                                src={stackBlockIcon}
+                                src={branchInputIcon}
+                            />
+                            <div className={styles.optionTitle}>
+                                <FormattedMessage
+                                    defaultMessage="Add an input"
+                                    description="Label for button to add a command input"
+                                    id="gui.customProcedures.addAnInputCommand"
+                                />
+                            </div>
+                            <div className={styles.optionDescription}>
+                                <FormattedMessage
+                                    defaultMessage="branch"
+                                    description="Description of the command input type"
+                                    id="gui.customProcedures.commandType"
                                 />
                             </div>
                         </div>
@@ -522,6 +550,7 @@ const CustomProcedures = props => (
 CustomProcedures.propTypes = {
     componentRef: PropTypes.func.isRequired,
     intl: intlShape,
+    onAddCommand: PropTypes.func.isRequired,
     onAddBoolean: PropTypes.func.isRequired,
     onAddLabel: PropTypes.func.isRequired,
     onAddTextNumber: PropTypes.func.isRequired,

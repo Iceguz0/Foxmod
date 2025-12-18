@@ -13,6 +13,8 @@ import styles from './custom-accent-modal.css';
 import editIcon from './edit.svg';
 import deleteIcon from './delete.svg';
 
+import {isUnsupported} from './unsupported-browsers.js';
+
 /* eslint-disable react/no-multi-comp */
 
 const BufferedInput = BufferedInputHOC(Input);
@@ -229,7 +231,7 @@ const CustomAccentModalComponent = function (props) {
 
     function refreshUI() {
         //setCustomAccentComponents((prev) => [...prev]);
-        setTick(t => t + 1);
+        setTick((t) => t)
     }
 
     function addToUI(node) {
@@ -258,6 +260,28 @@ const CustomAccentModalComponent = function (props) {
 
     function test() {
         setCustomAccentComponents((prev) => {console.log(prev); return prev});
+    }
+    function reloadComponents(newData) {
+        setCustomAccentComponents([])
+
+        newData.forEach((item) => {
+            addToUI(
+                <CustomAccentComponent
+                    //name={`*Name ${this.accents}*`}
+                    name={item.name}
+                    //primaryColor={"#" + Math.floor(Math.random() * 16777215).toString(16).padStart(6, "0")}
+                    primaryColor={item.colors.primary}
+                    primaryColorDark={item.colors.primaryDark}
+                    onEditClicked={props.onEditClicked}
+                    onDeleteClicked={(name) => {
+                        props.onDeleteClicked(name, deleteAccentComponentFromUIwithName);
+                    }}
+                    onActivated={props.onActivated}
+                    onDeactivated={props.onDeactivated}
+                    refreshUI={refreshUI}
+                />
+            )
+        })
     }
 
     const CUSTOM_ACCENTS_ARRAY = JSON.parse(localStorage.getItem(CUSTOM_ACCENTS_KEY)) == 1 ? [] : JSON.parse(localStorage.getItem(CUSTOM_ACCENTS_KEY))
@@ -332,6 +356,40 @@ const CustomAccentModalComponent = function (props) {
                         onEditClicked={props.onEditClicked}
                         onDeleteClicked={props.onDeleteClicked}
                     />*/}
+                    {isUnsupported() ? (
+                        <div className={styles.nothingText}>
+                            Your browser does not support the 'showOpenFilePicker' function, which is required to import Accents.
+                        </div>
+                    ) : (
+                            <div
+                                style={{
+                                    display: "flex",
+                                    gap: "8px"
+                                }}
+                            >
+                                <button
+                                    onClick={props.onExportAccents}
+                                    className={styles.button}
+                                >
+                                    <FormattedMessage
+                                        defaultMessage="Export Accents"
+                                        description="Button in custom accents modal"
+                                        id="dm.customAccentsModal.exportAccents"
+                                    />
+                                </button>
+                                <button
+                                    onClick={() => {props.onImportAccents(reloadComponents)}}
+                                    className={styles.button}
+                                >
+                                    <FormattedMessage
+                                        defaultMessage="Import Accents"
+                                        description="Button in custom accents modal"
+                                        id="dm.customAccentsModal.importAccents"
+                                    />
+                                </button>
+                            </div>
+                        )
+                    }
                 </Box>
             )}
             {!!isNewAccUIOpen && (
@@ -423,6 +481,8 @@ CustomAccentModalComponent.propTypes = {
     onCreateAccentClicked: PropTypes.func.isRequired,
     onActivated: PropTypes.func.isRequired,
     onDeactivated: PropTypes.func.isRequired,
+    onExportAccents: PropTypes.func.isRequired,
+    onImportAccents: PropTypes.func.isRequired,
 };
 
 export default injectIntl(CustomAccentModalComponent)

@@ -6,6 +6,7 @@ import TWRenderRecoloredImage from '../../lib/tw-recolor/render.jsx';
 
 import filterIcon from '!../../lib/tw-recolor/build!./icon--filter.svg';
 import xIcon from '!../../lib/tw-recolor/build!./icon--x.svg';
+import caseSensitiveIcon from '!../../lib/tw-recolor/build!./icon--case-sensitive.svg';
 import styles from './filter.css';
 
 const FilterComponent = props => {
@@ -17,6 +18,7 @@ const FilterComponent = props => {
         filterQuery,
         inputClassName
     } = props;
+
     return (
         <div
             className={classNames(className, styles.filter, {
@@ -35,6 +37,16 @@ const FilterComponent = props => {
                 value={filterQuery}
                 onChange={onChange}
             />
+            {/*<button
+                className={styles.aaIconWrapper}
+                onClick={() => {isCaseSensitive = !isCaseSensitive}}
+            >
+                <TWRenderRecoloredImage
+                    className={styles.aaIcon}
+                    src={caseSensitiveIcon}
+                    draggable={false}
+                />
+            </button>*/}
             <div
                 className={styles.xIconWrapper}
                 onClick={onClear}

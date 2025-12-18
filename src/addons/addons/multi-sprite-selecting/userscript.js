@@ -49,6 +49,8 @@ export default async function ({ addon, console, msg }) {
 
     const container = document.createElement("div");
     container.className = "sa-sprite-selecting-container"
+    container.style.display = "flex";
+    container.style.gap = "4px";
     container.appendChild(selectAllButton);
     container.appendChild(deselectAllButton);
     container.appendChild(deleteButton);
@@ -402,6 +404,8 @@ export default async function ({ addon, console, msg }) {
             HasWaitedForElement = true;
         }
         // console.log("enableSelecting() waited for element");
+
+        // sa-search-sprites-container // i'm trying something
 
         spritesContainer = document.querySelector('[class^="sprite-selector_items-wrapper"]');
         spriteSelectorContainer = document.querySelector('[class^="sprite-selector_scroll-wrapper"]');

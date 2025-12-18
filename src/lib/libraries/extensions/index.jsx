@@ -192,6 +192,12 @@ const menuItems = [
                 id="gui.extension.music.description"
             />
         ),
+        extraLabels: [
+            {
+                name: "Modified by",
+                value: "DinosaurMod"
+            }
+        ],
         featured: true
     },
     {
@@ -213,6 +219,12 @@ const menuItems = [
                 id="gui.extension.pen.description"
             />
         ),
+        extraLabels: [
+            {
+                name: "Modified by",
+                value: "PenguinMod"
+            }
+        ],
         featured: true
     },
     {
@@ -290,7 +302,13 @@ const menuItems = [
             />
         ),
         featured: true,
-        internetConnectionRequired: true
+        internetConnectionRequired: true,
+        extraLabels: [
+            {
+                name: "Modified by",
+                value: "PenguinMod"
+            }
+        ]
     },
     {
         name: (
@@ -337,6 +355,12 @@ const menuItems = [
                 id="gui.extension.translate.description"
             />
         ),
+        extraLabels: [
+            {
+                name: "Modified by",
+                value: "DinosaurMod"
+            }
+        ],
         featured: true,
         internetConnectionRequired: true
     },
@@ -1928,6 +1952,16 @@ if (IsLocal || IsLiveTests) {
             extDeveloper: 'jwklong',
             featured: true
         },*/
+        {
+            name: 'Functions and Tests',
+            extensionId: 'https://raw.githubusercontent.com/Dinosaurmod/extensions/refs/heads/main/src/extensions/jasmine.js',
+            iconURL: defaultExtensionIcon,
+            description: 'No description yet.',
+            featured: true,
+            disabled: true,
+            inspiredExt: 'Jasmine (JS Framework)',
+            extDeveloper: 'MrIncredibleMaker'
+        },
         {
             name: 'TurboBuilder Extension',
             extensionId: 'https://gabsthecuriouskid.github.io/DinosaurModExtensions/legacy-extensions/turbobuilder.js',
