@@ -1,13 +1,3 @@
-scratch-gui modified for use in [TurboWarp](https://turbowarp.org/) then modified for use in [PenguinMod](https://penguinmod.github.io/penguinmod.github.io/) and [Dinosaurmod](https://dinosaurmod.github.io) finaly FOx mod😀
-
-## Setup
-
-See https://docs.turbowarp.org/development/getting-started to setup the complete TurboWarp environment.
-
-If you just want to play with the GUI then it's the same process as upstream scratch-gui.
-
-## License
-
 TurboWarp's modifications to Scratch are licensed under the GNU General Public License v3.0. See LICENSE or https://www.gnu.org/licenses/ for details.
 
 The following is the original license for scratch-gui, which we are required to retain. This is NOT the license of this project.
